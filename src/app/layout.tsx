@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Source_Sans_3 } from "next/font/google";
-import { SiteFooter } from "@/components/SiteFooter";
-import { SiteHeader } from "@/components/SiteHeader";
-import { PageEnter } from "@/components/motion/PageEnter";
+import { SiteChrome } from "@/components/SiteChrome";
 import { person, site } from "@/content/site";
 import "./globals.css";
 
@@ -85,21 +83,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <a
-          href="#content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-6 focus:top-4 focus:z-[80] focus:bg-forest focus:px-4 focus:py-2 focus:text-cream"
-        >
-          Skip to content
-        </a>
-        <div
-          className="flag-ribbon pointer-events-none fixed inset-y-0 left-0 z-40 w-[3px] md:w-1"
-          aria-hidden
-        />
-        <SiteHeader />
-        <div id="content" className="flex flex-1 flex-col">
-          <PageEnter>{children}</PageEnter>
-        </div>
-        <SiteFooter />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );
