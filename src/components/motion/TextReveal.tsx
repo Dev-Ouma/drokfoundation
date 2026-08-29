@@ -13,8 +13,7 @@ type Props = {
 };
 
 /**
- * Executive line clip — words rise through a mask, one after another.
- * Minimal, no bounce — Craig / Mudavadi-adjacent restraint.
+ * Executive line clip — words rise through a mask, inline (not stacked blocks).
  */
 export function TextReveal({
   text,
@@ -24,7 +23,7 @@ export function TextReveal({
   as: Tag = "h2",
 }: Props) {
   const ref = useRef<HTMLElement>(null);
-  const words = text.split(" ");
+  const words = text.split(/\s+/).filter(Boolean);
 
   useEffect(() => {
     const el = ref.current;
@@ -36,8 +35,8 @@ export function TextReveal({
     }
 
     if (mode === "load") {
-      const id = requestAnimationFrame(() => el.classList.add("is-in"));
-      return () => cancelAnimationFrame(id);
+      el.classList.add("is-in");
+      return;
     }
 
     const io = new IntersectionObserver(
@@ -47,7 +46,7 @@ export function TextReveal({
           io.disconnect();
         }
       },
-      { threshold: 0.2, rootMargin: "0px 0px -5% 0px" },
+      { threshold: 0.15, rootMargin: "0px 0px -4% 0px" },
     );
     io.observe(el);
     return () => io.disconnect();
@@ -56,10 +55,20 @@ export function TextReveal({
   return (
     <Tag ref={ref as never} className={className} aria-label={text}>
       {words.map((word, i) => (
-        <span key={`${word}-${i}`} className="text-reveal inline-block">
+        <span
+          key={`${word}-${i}`}
+          className={cn(
+            "text-reveal",
+            mode === "load" && "text-reveal--load",
+          )}
+        >
           <span
             className="text-reveal__inner"
-            style={{ transitionDelay: `${delay + i * 42}ms` }}
+            style={
+              mode === "load"
+                ? { animationDelay: `${delay + i * 38}ms` }
+                : { transitionDelay: `${delay + i * 38}ms` }
+            }
             aria-hidden
           >
             {word}

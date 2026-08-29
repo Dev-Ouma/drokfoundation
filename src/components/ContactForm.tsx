@@ -171,7 +171,7 @@ export function ContactForm() {
       ) : null}
       <button
         type="submit"
-        className="bg-forest px-6 py-3 text-[0.78rem] font-semibold tracking-[0.18em] text-cream uppercase transition hover:bg-forest-mid"
+        className="rounded-full bg-forest px-8 py-3 text-[0.78rem] font-semibold tracking-[0.18em] text-cream uppercase transition hover:bg-forest-mid"
       >
         Open in email →
       </button>

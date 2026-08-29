@@ -53,7 +53,7 @@ export function NewsletterForm({ dark = false }: { dark?: boolean }) {
       />
       <button
         type="submit"
-        className="bg-gold px-5 py-3 text-[0.75rem] font-semibold tracking-[0.16em] text-forest uppercase"
+        className="rounded-full bg-gold px-6 py-3 text-[0.75rem] font-semibold tracking-[0.16em] text-forest uppercase transition hover:bg-gold-soft"
       >
         Subscribe
       </button>

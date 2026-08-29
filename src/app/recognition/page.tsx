@@ -41,7 +41,7 @@ export default function RecognitionPage() {
                   <a
                     href={item.href}
                     className="mt-4 inline-block text-[0.75rem] font-semibold tracking-[0.16em] text-gold-deep uppercase"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     target="_blank"
                   >
                     Source →

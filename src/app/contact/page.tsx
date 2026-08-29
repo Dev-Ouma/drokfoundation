@@ -15,11 +15,12 @@ export default function ContactPage() {
   return (
     <main>
       <PageIntro
+        size="compact"
         kicker="Get involved"
         title="The door is a letter, not a megaphone"
         lede="Volunteers, teachers, journalists, and neighbours — write with your name and your town. The briefing list is for those who prefer a quiet update to a noisy feed."
       />
-      <section className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-12 md:px-8 md:py-20">
+      <section className="mx-auto grid max-w-6xl gap-12 px-5 py-12 md:grid-cols-12 md:px-8 md:py-16">
         <div className="md:col-span-4">
           <h2 className="font-display text-3xl text-forest italic">
             Correspondence
@@ -63,7 +64,7 @@ export default function ContactPage() {
               <a
                 className="text-forest underline"
                 href={site.linkedin}
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 LinkedIn
@@ -72,7 +73,7 @@ export default function ContactPage() {
               <a
                 className="text-forest underline"
                 href={site.cvPdf}
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 PDF CV

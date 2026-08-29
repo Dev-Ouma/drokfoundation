@@ -12,14 +12,24 @@ import { getMedia } from "@/lib/media";
 
 function buildSlides(): CarouselSlide[] {
   const { official, portrait } = getMedia();
+  const placeStudies = gallery.slice(0, 4).map((g) => ({
+    src: g.src,
+    alt: g.alt,
+    caption: g.caption,
+    credit: g.credit,
+  }));
+
   if (official.length > 0) {
-    return official.map((shot, i) => ({
+    const shots = official.map((shot, i) => ({
       src: shot.src,
       alt: shot.alt,
       caption: i === 0 ? "Dr. Joel Okutoyi" : "In service",
       credit: "Official photograph",
     }));
+    // Keep carousel moving when only one official photo exists
+    return shots.length >= 2 ? shots : [...shots, ...placeStudies];
   }
+
   if (portrait.ready) {
     return [
       {
@@ -28,14 +38,10 @@ function buildSlides(): CarouselSlide[] {
         caption: "Dr. Joel Okutoyi",
         credit: "Official photograph",
       },
-      ...gallery.slice(0, 4).map((g) => ({
-        src: g.src,
-        alt: g.alt,
-        caption: g.caption,
-        credit: g.credit,
-      })),
+      ...placeStudies,
     ];
   }
+
   return gallery.slice(0, 5).map((g) => ({
     src: g.src,
     alt: g.alt,
@@ -49,9 +55,9 @@ export function HomeSections() {
 
   return (
     <>
-      <section id="about-snapshot" className="bg-forest py-20 text-cream md:py-24">
-        <div className="mx-auto grid max-w-5xl items-center gap-12 px-6 md:grid-cols-[220px_1fr] md:px-8">
-          <Reveal variant="scale" className="mx-auto -mt-16 md:mx-0 md:-mt-10">
+      <section id="about-snapshot" className="bg-forest py-16 text-cream md:py-20">
+        <div className="mx-auto grid max-w-5xl items-center gap-10 px-6 md:grid-cols-[220px_1fr] md:gap-12 md:px-8">
+          <Reveal variant="scale" className="mx-auto md:mx-0">
             <Portrait
               size="xl"
               onDark
@@ -59,10 +65,10 @@ export function HomeSections() {
             />
           </Reveal>
           <Reveal className="space-y-6 text-center md:text-left" delay={80}>
-            <p className="text-lg leading-relaxed text-cream/80 lg:text-xl">
+            <p className="text-lg leading-relaxed text-cream/85 lg:text-xl">
               {homeBio}
             </p>
-            <div className="pt-2">
+            <div className="pt-1">
               <Link
                 href="/about"
                 className="inline-block rounded-full border-2 border-gold px-8 py-3 text-sm font-semibold tracking-wide text-gold uppercase transition duration-300 hover:bg-gold hover:text-forest"
@@ -74,7 +80,7 @@ export function HomeSections() {
         </div>
       </section>
 
-      <section className="bg-cream px-6 py-20 md:px-8 md:py-24">
+      <section className="bg-cream px-6 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-6xl">
           <TextReveal
             as="h2"
@@ -101,13 +107,13 @@ export function HomeSections() {
                 sizes="(min-width: 768px) 48vw, 100vw"
               />
               <div className="absolute inset-0 z-10 flex flex-col justify-end rounded-2xl bg-gradient-to-t from-forest/85 via-forest/35 to-transparent p-6 md:p-8">
-                <p className="text-[0.65rem] font-semibold tracking-[0.2em] text-gold uppercase">
+                <p className="text-[0.7rem] font-semibold tracking-[0.18em] text-gold uppercase">
                   Geography of service
                 </p>
                 <p className="mt-2 font-display text-2xl text-cream italic md:text-3xl">
                   Kakamega · Kisumu · Dadaab · Butere
                 </p>
-                <p className="mt-3 max-w-sm text-sm leading-relaxed text-cream/80">
+                <p className="mt-3 max-w-sm text-sm leading-relaxed text-cream/85">
                   Classrooms, funded projects, and the constituency he is
                   preparing to serve in 2032.
                 </p>

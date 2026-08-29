@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { PageIntro } from "@/components/PageIntro";
+import { Reveal } from "@/components/Reveal";
+import { Stagger } from "@/components/motion/Stagger";
 import { gallery } from "@/content/site";
 import { getMedia } from "@/lib/media";
 import type { Metadata } from "next";
@@ -21,6 +23,7 @@ export default function GalleryPage() {
   return (
     <main>
       <PageIntro
+        size="compact"
         kicker="Gallery"
         title={
           official.length
@@ -37,10 +40,12 @@ export default function GalleryPage() {
       {official.length > 0 ? (
         <section className="border-b border-gold/20 bg-cream">
           <div className="mx-auto max-w-6xl px-5 py-12 md:px-8">
-            <p className="mb-6 text-[0.7rem] font-semibold tracking-[0.2em] text-muted uppercase">
-              Official photography
-            </p>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <Reveal>
+              <p className="mb-6 text-[0.7rem] font-semibold tracking-[0.2em] text-muted uppercase">
+                Official photography
+              </p>
+            </Reveal>
+            <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {official.map((shot) => (
                 <figure key={shot.src} className="overflow-hidden rounded-2xl">
                   <div className="relative aspect-[4/5]">
@@ -61,19 +66,21 @@ export default function GalleryPage() {
                   </figcaption>
                 </figure>
               ))}
-            </div>
+            </Stagger>
           </div>
         </section>
       ) : null}
 
-      <section className="mx-auto max-w-6xl px-5 py-16 md:px-8">
-        <p className="mb-6 text-[0.7rem] font-semibold tracking-[0.2em] text-muted uppercase">
-          Place studies
-        </p>
-        <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
+      <section className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
+        <Reveal>
+          <p className="mb-6 text-[0.7rem] font-semibold tracking-[0.2em] text-muted uppercase">
+            Place studies
+          </p>
+        </Reveal>
+        <Stagger className="columns-1 gap-4 sm:columns-2 lg:columns-3">
           {gallery.map((item) => (
             <figure key={item.src} className="mb-4 break-inside-avoid">
-              <div className="relative aspect-[4/5] overflow-hidden">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-xl">
                 <Image
                   src={item.src}
                   alt={item.alt}
@@ -90,7 +97,7 @@ export default function GalleryPage() {
               </figcaption>
             </figure>
           ))}
-        </div>
+        </Stagger>
       </section>
     </main>
   );

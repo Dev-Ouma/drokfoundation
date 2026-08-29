@@ -62,7 +62,7 @@ export default function CommunityPage() {
                   <a
                     className="mt-6 text-[0.75rem] font-semibold tracking-[0.16em] text-gold-deep uppercase"
                     href={item.href}
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     target="_blank"
                   >
                     Source →

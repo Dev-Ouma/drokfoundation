@@ -64,6 +64,7 @@ export default function CvPage() {
   return (
     <main>
       <PageIntro
+        size="compact"
         kicker="Curriculum Vitae"
         title="The public record of a scholar"
         lede="Education, appointments, funded research, postgraduate mentorship, leadership, conferences, and publications — drawn from his Maseno staff CV and later public updates."
@@ -121,8 +122,8 @@ export default function CvPage() {
                 <a
                   href={site.cvPdf}
                   target="_blank"
-                  rel="noreferrer"
-                  className="bg-forest px-5 py-2.5 text-[0.72rem] font-semibold tracking-[0.16em] text-cream uppercase"
+                  rel="noopener noreferrer"
+                  className="rounded-full bg-forest px-6 py-2.5 text-[0.72rem] font-semibold tracking-[0.16em] text-cream uppercase transition hover:bg-forest-mid"
                 >
                   Download PDF CV
                 </a>
@@ -334,7 +335,7 @@ export default function CvPage() {
                     <a
                       href={pub.href}
                       className="font-display text-lg text-forest italic hover:text-gold-deep md:text-xl"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       target="_blank"
                     >
                       {i + 1}. {pub.title}
@@ -353,7 +354,7 @@ export default function CvPage() {
           <a
             href={site.cvPdf}
             className="mt-8 inline-block text-[0.75rem] font-semibold tracking-[0.16em] text-gold-deep uppercase"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             target="_blank"
           >
             Open original PDF CV →

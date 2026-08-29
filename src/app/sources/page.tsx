@@ -13,11 +13,12 @@ export default function SourcesPage() {
   return (
     <main>
       <PageIntro
+        size="compact"
         kicker="On the record"
         title="What this site is allowed to say"
         lede="Every biographical and impact claim is tied to a public document. What is not listed here is either not yet confirmed or not ours to invent."
       />
-      <section className="mx-auto max-w-3xl px-5 py-16 md:px-8">
+      <section className="mx-auto max-w-3xl px-5 py-12 md:px-8 md:py-14">
         <ol className="space-y-8">
           {sources.map((item, i) => (
             <li key={item.href} className="border-t border-gold/25 pt-6">
@@ -27,7 +28,7 @@ export default function SourcesPage() {
               <a
                 href={item.href}
                 className="mt-1 block font-display text-2xl text-forest italic hover:text-gold-deep"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 {item.label}

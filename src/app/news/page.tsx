@@ -20,11 +20,12 @@ export default function NewsPage() {
   return (
     <main>
       <PageIntro
+        size="compact"
         kicker="News & updates"
         title="What can already be cited"
         lede="Press mentions, statements, and event recaps will live here. For now, the list is limited to dated public records."
       />
-      <section className="mx-auto max-w-3xl px-5 py-16 md:px-8">
+      <section className="mx-auto max-w-3xl px-5 py-12 md:px-8 md:py-14">
         <ul className="divide-y divide-gold/25 border-y border-gold/25">
           {news.map((item) => (
             <li key={item.slug} className="py-8">
@@ -34,7 +35,7 @@ export default function NewsPage() {
               <a
                 href={item.href}
                 className="mt-2 block font-display text-3xl text-forest italic hover:text-gold-deep"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 {item.title}

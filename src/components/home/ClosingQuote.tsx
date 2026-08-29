@@ -1,24 +1,21 @@
 import { Reveal } from "@/components/Reveal";
-import { TextReveal } from "@/components/motion/TextReveal";
 import { closingQuote } from "@/content/site";
 
 export function ClosingQuote() {
   return (
-    <section className="bg-cream px-6 py-20 md:py-24">
-      <Reveal className="relative mx-auto max-w-4xl text-center">
+    <section className="bg-cream px-6 py-16 md:py-20">
+      <Reveal className="relative mx-auto max-w-3xl text-center">
         <p
-          className="pointer-events-none absolute -top-4 left-0 font-display text-7xl text-gold/20 select-none"
+          className="pointer-events-none absolute -top-2 left-2 font-display text-6xl leading-none text-gold/25 select-none md:-top-4 md:left-0 md:text-7xl"
           aria-hidden
         >
           “
         </p>
-        <blockquote>
-          <TextReveal
-            as="p"
-            text={closingQuote.text}
-            className="font-display text-3xl leading-relaxed text-forest italic md:text-5xl"
-          />
-          <footer className="mt-6 text-lg font-light text-muted">
+        <blockquote className="px-2 pt-6 md:pt-4">
+          <p className="font-display text-2xl leading-snug text-forest italic md:text-4xl md:leading-relaxed">
+            {closingQuote.text}
+          </p>
+          <footer className="mt-6 text-base font-light text-muted md:text-lg">
             — {closingQuote.attribution}
           </footer>
         </blockquote>

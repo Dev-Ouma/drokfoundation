@@ -24,11 +24,9 @@ export default function VisionPage() {
               My promise to Kenyans of Butere
             </p>
           </Reveal>
-          <TextReveal
-            as="p"
-            text={vision.promise}
-            className="mt-5 font-display text-2xl leading-snug italic md:text-4xl"
-          />
+          <p className="mt-5 font-display text-2xl leading-snug italic md:text-4xl md:leading-relaxed">
+            {vision.promise}
+          </p>
           <Reveal delay={200}>
             <p className="mt-6 text-sm tracking-[0.14em] text-cream/60 uppercase">
               {vision.seat} · {vision.horizon}

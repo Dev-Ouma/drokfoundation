@@ -114,7 +114,7 @@ export default function AboutPage() {
           <a
             href={site.cvPdf}
             className="mt-10 inline-block text-[0.75rem] font-semibold tracking-[0.16em] text-gold uppercase"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             target="_blank"
           >
             Download PDF CV →

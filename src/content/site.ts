@@ -108,13 +108,19 @@ export const navPrimary: NavItem[] = [
   { href: "/contact", label: "Contact" },
 ];
 
-/** Slim footer links */
+/** Footer sitemap — primary destinations */
 export const footerNav: NavLink[] = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/cv", label: "Curriculum Vitae" },
+  { href: "/work", label: "Work" },
   { href: "/vision", label: "Vision 2032" },
   { href: "/foundation", label: "Foundation" },
-  { href: "/work", label: "Work" },
+  { href: "/recognition", label: "Recognition" },
+  { href: "/speaking", label: "Speaking" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/news", label: "News" },
+  { href: "/sources", label: "Sources" },
   { href: "/contact", label: "Contact" },
 ];
 

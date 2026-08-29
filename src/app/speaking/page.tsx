@@ -44,7 +44,7 @@ export default function SpeakingPage() {
                   <a
                     href={item.href}
                     className="mt-4 inline-block text-[0.75rem] font-semibold tracking-[0.16em] text-gold-deep uppercase"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     target="_blank"
                   >
                     Related link →
@@ -67,7 +67,7 @@ export default function SpeakingPage() {
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-block bg-forest px-6 py-3 text-[0.75rem] font-semibold tracking-[0.16em] text-cream uppercase"
+            className="mt-8 inline-block rounded-full bg-forest px-8 py-3 text-[0.75rem] font-semibold tracking-[0.16em] text-cream uppercase transition hover:bg-forest-mid"
           >
             Request a speaking engagement
           </Link>

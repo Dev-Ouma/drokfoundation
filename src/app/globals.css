@@ -97,6 +97,12 @@ body {
   font-weight: 600;
 }
 
+@media (max-width: 640px) {
+  .kicker {
+    letter-spacing: 0.16em;
+  }
+}
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -278,20 +284,35 @@ textarea:focus-visible {
   animation-delay: 0.8s;
 }
 
-/* Text line clip — executive headline motion */
+/* Text line clip — executive headline motion (inline words, not stacked blocks) */
 .text-reveal {
-  display: block;
+  display: inline-block;
   overflow: hidden;
+  vertical-align: top;
 }
 
 .text-reveal__inner {
-  display: block;
+  display: inline-block;
   transform: translate3d(0, 110%, 0);
   transition: transform var(--dur-slow) var(--ease-out);
 }
 
 .is-in .text-reveal__inner {
   transform: none;
+}
+
+/* Load-mode titles animate without waiting for JS .is-in */
+@keyframes text-rise {
+  from {
+    transform: translate3d(0, 110%, 0);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.text-reveal--load .text-reveal__inner {
+  animation: text-rise var(--dur-slow) var(--ease-out) forwards;
 }
 
 /* Stagger children when parent is in view */
@@ -408,10 +429,18 @@ textarea:focus-visible {
   transform: scale(1.04);
 }
 
-/* Nav pill soft settle on load */
+/* Nav pill soft settle — always readable; slight drop only */
+@keyframes nav-settle {
+  from {
+    transform: translate3d(0, -6px, 0);
+  }
+  to {
+    transform: none;
+  }
+}
+
 .nav-settle {
-  opacity: 0;
-  animation: soft-scale-in 0.7s var(--ease-out) 0.1s forwards;
+  animation: nav-settle 0.55s var(--ease-out) both;
 }
 
 /* Scroll cue — quieter than bounce */
@@ -429,6 +458,33 @@ textarea:focus-visible {
 
 .scroll-cue {
   animation: scroll-cue 2.4s var(--ease-soft) infinite;
+}
+
+/* Progressive enhancement — content visible without JS */
+@media (scripting: none) {
+  .reveal,
+  .reveal-fade,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .stagger > *,
+  .text-reveal__inner,
+  .bar-grow,
+  .rule-draw,
+  .motion-fade-up,
+  .motion-fade-in,
+  .motion-scale-in,
+  .nav-settle {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .img-reveal > img,
+  .img-reveal .img-reveal-media {
+    transform: none !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -461,10 +517,18 @@ textarea:focus-visible {
   .nav-settle,
   .scroll-cue,
   .rule-draw-load,
+  .text-reveal--load .text-reveal__inner,
   .is-in .bar-grow {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  @keyframes nav-settle {
+    from,
+    to {
+      transform: none;
+    }
   }
 
   .lift:hover,

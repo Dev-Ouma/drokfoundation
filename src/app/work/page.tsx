@@ -38,7 +38,7 @@ export default function WorkPage() {
             <a
               href={site.cvPdf}
               className="text-[0.75rem] font-semibold tracking-[0.16em] text-gold-deep uppercase"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               target="_blank"
             >
               PDF →
@@ -48,9 +48,9 @@ export default function WorkPage() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {researchThemes.map((theme) => (
             <Reveal key={theme.title} className="paper-card p-6">
-              <h2 className="font-display text-2xl text-forest italic">
+              <h3 className="font-display text-2xl text-forest italic">
                 {theme.title}
-              </h2>
+              </h3>
               <p className="mt-3 text-sm leading-relaxed text-muted">
                 {theme.body}
               </p>
@@ -99,7 +99,7 @@ export default function WorkPage() {
             <a
               className="inline-block text-[0.75rem] font-semibold tracking-[0.16em] text-gold uppercase"
               href={ai4ksl.href}
-              rel="noreferrer"
+              rel="noopener noreferrer"
               target="_blank"
             >
               Maseno project page →
@@ -127,7 +127,7 @@ export default function WorkPage() {
                 <a
                   href={pub.href}
                   className="font-display text-xl text-forest italic hover:text-gold-deep md:text-2xl"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
                   {pub.title}

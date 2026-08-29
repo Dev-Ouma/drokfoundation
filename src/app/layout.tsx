@@ -92,7 +92,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <div
-          className="flag-ribbon pointer-events-none fixed inset-y-0 left-0 z-50 w-[3px] md:w-1"
+          className="flag-ribbon pointer-events-none fixed inset-y-0 left-0 z-40 w-[3px] md:w-1"
           aria-hidden
         />
         <SiteHeader />

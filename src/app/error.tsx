@@ -15,7 +15,7 @@ export default function Error({
       <button
         type="button"
         onClick={reset}
-        className="mt-8 bg-forest px-5 py-3 text-[0.75rem] font-semibold tracking-[0.16em] text-cream uppercase"
+        className="mt-8 rounded-full bg-forest px-6 py-3 text-[0.75rem] font-semibold tracking-[0.16em] text-cream uppercase"
       >
         Try again
       </button>

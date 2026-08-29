@@ -88,7 +88,7 @@ export default function MentorshipPage() {
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-block bg-forest px-6 py-3 text-[0.75rem] font-semibold tracking-[0.16em] text-cream uppercase"
+            className="mt-8 inline-block rounded-full bg-forest px-8 py-3 text-[0.75rem] font-semibold tracking-[0.16em] text-cream uppercase transition hover:bg-forest-mid"
           >
             Start a conversation
           </Link>
