@@ -26,12 +26,12 @@ export default function MentorshipPage() {
           ))}
         </Reveal>
       </section>
-      <section className="border-t border-gold/20 bg-cream-deep/40">
+      <section className="border-t border-[var(--line)] bg-white">
         <div className="mx-auto grid max-w-6xl gap-6 px-5 py-16 md:grid-cols-3 md:px-8 md:py-24">
           {mentorship.pillars.map((pillar, i) => (
             <Reveal key={pillar.title} delay={i * 60} className="paper-card p-7">
-              <p className="font-display text-gold italic">0{i + 1}</p>
-              <h2 className="mt-3 font-display text-2xl text-forest italic">
+              <p className="year-mark">0{i + 1}</p>
+              <h2 className="mt-3 font-display text-2xl text-forest font-semibold tracking-tight">
                 {pillar.title}
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-muted">
@@ -44,7 +44,7 @@ export default function MentorshipPage() {
 
       <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
         <p className="kicker">On the 2020 CV</p>
-        <h2 className="mt-3 font-display text-4xl text-forest italic">
+        <h2 className="mt-3 font-display text-4xl text-forest font-semibold tracking-tight">
           Named postgraduate mentees
         </h2>
         <p className="mt-4 max-w-2xl text-muted">
@@ -55,7 +55,7 @@ export default function MentorshipPage() {
           {mentees.map((m) => (
             <li key={m.name} className="paper-card p-6">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <p className="font-display text-2xl text-forest italic">
+                <p className="font-display text-2xl text-forest font-semibold tracking-tight">
                   {m.name}
                 </p>
                 <p className="text-[0.68rem] font-semibold tracking-[0.14em] text-gold-deep uppercase">
@@ -78,7 +78,7 @@ export default function MentorshipPage() {
       <section className="mx-auto max-w-3xl px-5 pb-20 md:px-8">
         <Reveal className="paper-card p-8 md:p-10">
           <p className="kicker">Write to mentor or be mentored</p>
-          <h2 className="mt-3 font-display text-3xl text-forest italic">
+          <h2 className="mt-3 font-display text-3xl text-forest font-semibold tracking-tight">
             Graduate students, teachers, partners
           </h2>
           <p className="mt-4 leading-relaxed text-muted">
@@ -88,7 +88,7 @@ export default function MentorshipPage() {
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-block rounded-full bg-forest px-8 py-3 text-[0.75rem] font-semibold tracking-[0.16em] text-cream uppercase transition hover:bg-forest-mid"
+            className="mt-8 inline-block bg-forest px-8 py-3 text-[0.75rem] font-semibold tracking-[0.16em] text-cream uppercase transition hover:bg-forest-mid"
           >
             Start a conversation
           </Link>

@@ -37,31 +37,31 @@ export default function FoundationPage() {
         lede={foundation.lede}
       />
 
-      <section className="border-b border-gold/20 bg-cream">
+      <section className="border-b border-[var(--line)] bg-cream">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-12 md:px-8 md:py-20">
           <Reveal variant="left" className="md:col-span-5">
             <MotionImage
               src={heroSrc}
               alt={heroAlt}
               fill
-              frameClassName="relative aspect-[4/3] w-full overflow-hidden rounded-2xl"
+              frameClassName="relative aspect-[4/3] w-full overflow-hidden border border-[var(--line)]"
               imageClassName="object-cover"
               sizes="(min-width: 768px) 40vw, 100vw"
             />
           </Reveal>
           <Reveal className="md:col-span-7" delay={80}>
             <p className="kicker">Message from the founder</p>
-            <blockquote className="mt-4 font-display text-2xl leading-snug text-forest italic md:text-3xl">
+            <blockquote className="mt-5 border-l border-forest/30 pl-5 font-display text-2xl leading-snug text-forest md:text-3xl">
               “{foundation.foundersQuote}”
             </blockquote>
-            <p className="mt-4 text-sm tracking-[0.12em] text-muted uppercase">
-              — {foundation.foundersQuoteAttribution}
+            <p className="mt-4 text-[0.68rem] tracking-[0.12em] text-muted uppercase">
+              {foundation.foundersQuoteAttribution}
             </p>
             <p className="mt-6 leading-relaxed text-muted">
               {foundation.foundersBridge}
             </p>
-            <p className="mt-4 text-sm tracking-[0.12em] text-gold-deep uppercase">
-              — Dr. Joel Okutoyi, Founder
+            <p className="mt-4 text-[0.68rem] tracking-[0.12em] text-gold-deep uppercase">
+              Dr. Joel Okutoyi, Founder
             </p>
           </Reveal>
         </div>
@@ -74,18 +74,18 @@ export default function FoundationPage() {
           ))}
         </Reveal>
         <Reveal delay={100}>
-          <p className="mt-8 rounded-xl border border-gold/30 bg-cream-deep/50 p-5 text-sm leading-relaxed text-muted">
+          <p className="mt-8 border border-[var(--line)] bg-white p-5 text-sm leading-relaxed text-muted">
             {foundation.statusNote}
           </p>
         </Reveal>
       </section>
 
       {hasFacts ? (
-        <section className="border-t border-gold/20 bg-cream-deep/30 px-5 py-16 md:px-8">
+        <section className="border-t border-[var(--line)] bg-white px-5 py-16 md:px-8">
           <div className="mx-auto max-w-6xl">
             <Reveal>
               <p className="kicker">On the record</p>
-              <h2 className="mt-3 font-display text-3xl text-forest italic">
+              <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-forest">
                 Foundation particulars
               </h2>
             </Reveal>
@@ -118,7 +118,7 @@ export default function FoundationPage() {
             {facts.trustees.length > 0 ? (
               <div className="mt-10">
                 <p className="kicker">Trustees</p>
-                <ul className="mt-3 list-disc space-y-1 pl-5 text-muted">
+                <ul className="mt-3 space-y-1 text-muted">
                   {facts.trustees.map((t) => (
                     <li key={t}>{t}</li>
                   ))}
@@ -126,18 +126,15 @@ export default function FoundationPage() {
               </div>
             ) : null}
             {facts.programmes.length > 0 ? (
-              <div className="mt-10 grid gap-4 md:grid-cols-2">
+              <div className="mt-10 divide-y divide-[var(--line)] border-y border-[var(--line)]">
                 {facts.programmes.map((p) => (
-                  <div
-                    key={p.name}
-                    className="rounded-xl border border-gold/25 bg-cream p-5"
-                  >
-                    <p className="font-display text-xl text-forest italic">
+                  <div key={p.name} className="py-5">
+                    <p className="font-display text-xl font-semibold tracking-tight text-forest">
                       {p.name}
                     </p>
                     <p className="mt-2 text-sm text-muted">{p.focus}</p>
                     {p.year || p.beneficiaries ? (
-                      <p className="mt-3 text-xs tracking-[0.12em] text-gold-deep uppercase">
+                      <p className="year-mark mt-3">
                         {[p.year, p.beneficiaries].filter(Boolean).join(" · ")}
                       </p>
                     ) : null}
@@ -155,37 +152,34 @@ export default function FoundationPage() {
         </section>
       ) : null}
 
-      <section className="border-t border-gold/20 bg-forest text-cream">
+      <section className="border-t border-[var(--line)] bg-forest text-cream">
         <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
           <Reveal>
-            <p className="kicker text-gold">Focus areas</p>
+            <p className="kicker text-gold-soft">Focus areas</p>
             <TextReveal
               as="h2"
               text="How the Foundation serves"
-              className="mt-3 font-display text-4xl italic md:text-5xl"
+              className="mt-3 font-display text-4xl font-semibold tracking-tight md:text-5xl"
             />
-            <p className="mt-4 max-w-2xl text-cream/75">
+            <p className="mt-4 max-w-2xl text-cream/70">
               Guided by the same pillars that shape the Vision 2032 agenda —
               improving individuals so the constituency can rise.
             </p>
           </Reveal>
-          <Stagger className="mt-12 grid gap-5 sm:grid-cols-2">
+          <Stagger className="mt-12 grid gap-px bg-white/10 sm:grid-cols-2">
             {foundation.pillars.map((pillar) => (
-              <div
-                key={pillar.title}
-                className="lift rounded-2xl border border-white/10 bg-forest-mid/60 p-7"
-              >
-                <h3 className="font-display text-2xl text-gold italic">
+              <div key={pillar.title} className="bg-forest p-7 md:p-8">
+                <h3 className="font-display text-2xl font-semibold tracking-tight text-cream">
                   {pillar.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-cream/80">
+                <p className="mt-3 text-sm leading-relaxed text-cream/75">
                   {pillar.body}
                 </p>
                 <Link
                   href={pillar.href}
-                  className="mt-5 inline-block text-[0.7rem] font-semibold tracking-[0.16em] text-gold uppercase"
+                  className="mt-5 inline-block text-[0.68rem] font-semibold tracking-[0.14em] text-gold-soft uppercase"
                 >
-                  Learn more →
+                  Learn more
                 </Link>
               </div>
             ))}
@@ -194,10 +188,10 @@ export default function FoundationPage() {
       </section>
 
       <section className="bg-cream px-5 py-16 md:px-8 md:py-20">
-        <Stagger className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2">
-          <div className="lift rounded-2xl border border-gold/25 bg-cream-deep/40 p-8">
+        <div className="mx-auto grid max-w-6xl gap-px bg-[var(--line)] md:grid-cols-2">
+          <div className="bg-cream p-8 md:p-10">
             <p className="kicker">On the public record</p>
-            <h2 className="mt-3 font-display text-3xl text-forest italic">
+            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-forest">
               Verified impact so far
             </h2>
             <p className="mt-4 leading-relaxed text-muted">
@@ -207,47 +201,45 @@ export default function FoundationPage() {
             </p>
             <Link
               href="/community"
-              className="mt-6 inline-block rounded-full border-2 border-forest px-6 py-2.5 text-[0.75rem] font-semibold tracking-[0.14em] text-forest uppercase transition duration-300 hover:bg-forest hover:text-cream"
+              className="mt-6 inline-block border border-forest px-6 py-2.5 text-[0.72rem] font-semibold tracking-[0.12em] text-forest uppercase transition hover:bg-forest hover:text-cream"
             >
-              View impact →
+              View impact
             </Link>
           </div>
-          <div className="lift rounded-2xl border border-gold/25 bg-forest p-8 text-cream">
-            <p className="kicker text-gold">{foundation.invite.title}</p>
-            <h2 className="mt-3 font-display text-3xl italic">
+          <div className="bg-forest p-8 text-cream md:p-10">
+            <p className="kicker text-gold-soft">{foundation.invite.title}</p>
+            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight">
               Volunteer · Partner · Give
             </h2>
-            <p className="mt-4 leading-relaxed text-cream/80">
+            <p className="mt-4 leading-relaxed text-cream/75">
               {foundation.invite.body}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
                 href={foundation.invite.href}
-                className="rounded-full bg-gold px-6 py-2.5 text-[0.75rem] font-semibold tracking-[0.14em] text-forest uppercase transition duration-300 hover:bg-gold-soft"
+                className="bg-cream px-6 py-2.5 text-[0.72rem] font-semibold tracking-[0.12em] text-forest uppercase transition hover:bg-gold-soft"
               >
                 {foundation.invite.cta}
               </Link>
               <a
                 href={`mailto:${site.email}`}
-                className="rounded-full border border-gold/60 px-6 py-2.5 text-[0.75rem] font-semibold tracking-[0.14em] text-gold uppercase transition hover:bg-gold/10"
+                className="border border-cream/35 px-6 py-2.5 text-[0.72rem] font-semibold tracking-[0.12em] text-cream uppercase transition hover:border-cream"
               >
                 {site.email}
               </a>
             </div>
           </div>
-        </Stagger>
+        </div>
       </section>
 
-      <section className="border-t border-gold/20 px-5 py-12 text-center md:px-8">
-        <Reveal variant="fade">
-          <p className="text-sm text-muted">
-            Political preparation for Butere lives on{" "}
-            <Link href="/vision" className="font-semibold text-forest underline">
-              Vision 2032
-            </Link>
-            . The Foundation is the service vehicle that must outlast any ballot.
-          </p>
-        </Reveal>
+      <section className="border-t border-[var(--line)] px-5 py-12 md:px-8">
+        <p className="mx-auto max-w-3xl text-sm text-muted">
+          Political preparation for Butere lives on{" "}
+          <Link href="/vision" className="font-semibold text-forest underline underline-offset-4">
+            Vision 2032
+          </Link>
+          . The Foundation is the service vehicle that must outlast any ballot.
+        </p>
       </section>
     </main>
   );

@@ -21,13 +21,13 @@ export default function SourcesPage() {
       <section className="mx-auto max-w-3xl px-5 py-12 md:px-8 md:py-14">
         <ol className="space-y-8">
           {sources.map((item, i) => (
-            <li key={item.href} className="border-t border-gold/25 pt-6">
-              <p className="font-display text-gold-deep italic">
+            <li key={item.href} className="border-t border-[var(--line)] pt-6">
+              <p className="year-mark">
                 {String(i + 1).padStart(2, "0")}
               </p>
               <a
                 href={item.href}
-                className="mt-1 block font-display text-2xl text-forest italic hover:text-gold-deep"
+                className="mt-1 block font-display text-2xl text-forest font-semibold tracking-tight hover:text-gold-deep"
                 rel="noopener noreferrer"
                 target="_blank"
               >

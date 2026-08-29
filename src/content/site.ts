@@ -19,7 +19,7 @@ export const person = {
   givenName: "Joel",
   familyName: "Okutoyi",
   credentials: "PhD",
-  displayName: "Dr. Joel Okutoyi, PhD",
+  displayName: "Dr. Joel Okutoyi,\u00A0PhD",
   role: "Senior Lecturer",
   department: "Department of Special Needs Education and Rehabilitation",
   school: "School of Education",
@@ -598,17 +598,17 @@ export const foundation = {
 export const homeServiceTeasers = [
   {
     href: "/vision",
-    kicker: "Political ambition · 2032",
-    title: "Vision for Butere",
+    kicker: "Public leadership · 2032",
+    title: "An agenda for Butere Constituency",
     body: politicalPromise,
-    cta: "Read the agenda →",
+    cta: "Read the agenda",
   },
   {
     href: "/foundation",
-    kicker: "Okutoyi Foundation",
-    title: "Service before the seat",
+    kicker: "Philanthropy",
+    title: "The Okutoyi Foundation",
     body: "Education, health, socio-economic dignity, and outreach for persons with disabilities, orphans, and the vulnerable in Western Kenya.",
-    cta: "Visit the Foundation →",
+    cta: "Visit the Foundation",
   },
 ];
 

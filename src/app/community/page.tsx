@@ -19,7 +19,7 @@ export default function CommunityPage() {
         title="Impact without invention"
         lede="The Okutoyi Foundation is the vehicle. This page is the ledger — only what can already be shown. Named Foundation programmes will be added when they are confirmed."
       />
-      <section className="border-b border-gold/20 bg-cream-deep/30 px-5 py-8 md:px-8">
+      <section className="border-b border-[var(--line)] bg-white px-5 py-8 md:px-8">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted">
             Looking for the philanthropic vehicle and partner invitation?
@@ -39,7 +39,7 @@ export default function CommunityPage() {
               key={item.id}
               delay={i * 50}
               variant={i % 2 === 0 ? "left" : "right"}
-              className="paper-card lift grid overflow-hidden md:grid-cols-12"
+              className="grid overflow-hidden border border-[var(--line)] bg-white md:grid-cols-12"
             >
               <MotionImage
                 src={item.image}
@@ -54,7 +54,7 @@ export default function CommunityPage() {
                   {item.verified ? "On the public record" : "Awaiting confirmation"}{" "}
                   · {item.stat}
                 </p>
-                <h2 className="mt-3 font-display text-3xl text-forest italic">
+                <h2 className="mt-3 font-display text-3xl text-forest font-semibold tracking-tight">
                   {item.title}
                 </h2>
                 <p className="mt-4 leading-relaxed text-muted">{item.body}</p>

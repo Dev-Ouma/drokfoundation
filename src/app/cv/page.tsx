@@ -32,9 +32,9 @@ function SectionTitle({
   title: string;
 }) {
   return (
-    <div className="mb-8 border-b border-gold/30 pb-4">
+    <div className="mb-8 border-b border-[var(--line)] pb-4">
       <p className="kicker">{kicker}</p>
-      <h2 className="mt-2 font-display text-3xl text-forest italic md:text-4xl">
+      <h2 className="mt-2 font-display text-3xl text-forest font-semibold tracking-tight md:text-4xl">
         {title}
       </h2>
     </div>
@@ -70,72 +70,66 @@ export default function CvPage() {
         lede="Education, appointments, funded research, postgraduate mentorship, leadership, conferences, and publications — drawn from his Maseno staff CV and later public updates."
       />
 
-      {/* Letterhead */}
-      <section className="border-b border-gold/20 bg-cream-deep/40">
+      <section className="border-b border-[var(--line)] bg-white">
         <div className="mx-auto max-w-6xl px-5 py-12 md:px-8 md:py-16">
-          <Reveal className="paper-card relative overflow-hidden p-8 md:p-12">
-            <div
-              className="flag-ribbon absolute inset-y-0 left-0 w-1"
-              aria-hidden
-            />
-            <div className="pl-4 md:pl-6">
-              <p className="font-display text-4xl text-forest italic md:text-5xl">
-                {person.displayName}
-              </p>
-              <p className="mt-2 text-lg text-gold-deep">
-                {person.role} · {contactCard.department}
-              </p>
-              <p className="mt-1 text-muted">{contactCard.institution}</p>
-              <div className="mt-8 grid gap-6 text-sm leading-relaxed text-muted md:grid-cols-2">
-                <div>
-                  <p>{contactCard.road}</p>
-                  <p>{contactCard.poBox}</p>
-                </div>
-                <div className="space-y-1">
-                  <p>
-                    <a
-                      className="text-forest underline"
-                      href={contactCard.phoneHref}
-                    >
-                      {contactCard.phone}
-                    </a>
-                  </p>
-                  <p>
-                    <a
-                      className="text-forest underline"
-                      href={`mailto:${contactCard.emailPrimary}`}
-                    >
-                      {contactCard.emailPrimary}
-                    </a>
-                  </p>
-                  <p>
-                    <a
-                      className="text-forest underline"
-                      href={`mailto:${contactCard.emailAlt}`}
-                    >
-                      {contactCard.emailAlt}
-                    </a>
-                  </p>
-                </div>
+          <Reveal>
+            <p className="kicker">Office</p>
+            <p className="mt-4 font-display text-4xl font-semibold tracking-tight text-forest md:text-5xl">
+              {person.displayName}
+            </p>
+            <p className="mt-2 text-lg text-muted">
+              {person.role} · {contactCard.department}
+            </p>
+            <p className="mt-1 text-muted">{contactCard.institution}</p>
+            <div className="mt-8 grid gap-6 border-t border-[var(--line)] pt-8 text-sm leading-relaxed text-muted md:grid-cols-2">
+              <div>
+                <p>{contactCard.road}</p>
+                <p>{contactCard.poBox}</p>
               </div>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href={site.cvPdf}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full bg-forest px-6 py-2.5 text-[0.72rem] font-semibold tracking-[0.16em] text-cream uppercase transition hover:bg-forest-mid"
-                >
-                  Download PDF CV
-                </a>
-                <Link
-                  href="/contact"
-                  className="border border-gold-deep px-5 py-2.5 text-[0.72rem] font-semibold tracking-[0.16em] text-forest uppercase"
-                >
-                  Request speaking / supervision
-                </Link>
+              <div className="space-y-1">
+                <p>
+                  <a
+                    className="text-forest underline decoration-[var(--line)] underline-offset-4"
+                    href={contactCard.phoneHref}
+                  >
+                    {contactCard.phone}
+                  </a>
+                </p>
+                <p>
+                  <a
+                    className="text-forest underline decoration-[var(--line)] underline-offset-4"
+                    href={`mailto:${contactCard.emailPrimary}`}
+                  >
+                    {contactCard.emailPrimary}
+                  </a>
+                </p>
+                <p>
+                  <a
+                    className="text-forest underline decoration-[var(--line)] underline-offset-4"
+                    href={`mailto:${contactCard.emailAlt}`}
+                  >
+                    {contactCard.emailAlt}
+                  </a>
+                </p>
               </div>
-              <p className="mt-4 text-xs text-muted">{cvSource.note}</p>
             </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={site.cvPdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-forest px-6 py-2.5 text-[0.72rem] font-semibold tracking-[0.12em] text-cream uppercase transition hover:bg-forest-mid"
+              >
+                Download PDF CV
+              </a>
+              <Link
+                href="/contact"
+                className="border border-forest px-5 py-2.5 text-[0.72rem] font-semibold tracking-[0.12em] text-forest uppercase transition hover:bg-cream-deep"
+              >
+                Request speaking / supervision
+              </Link>
+            </div>
+            <p className="mt-4 text-xs text-muted">{cvSource.note}</p>
           </Reveal>
         </div>
       </section>
@@ -144,17 +138,15 @@ export default function CvPage() {
         {/* Education ladder */}
         <section>
           <SectionTitle kicker="01" title="Education" />
-          <ol className="relative space-y-0 border-l border-gold/40 pl-8">
+          <ol className="relative space-y-0 border-l border-[var(--line)] pl-8">
             {education.map((item, i) => (
               <li key={item.years} className="relative pb-10 last:pb-0">
                 <span
-                  className="absolute top-1.5 -left-[2.15rem] h-3 w-3 rounded-full border-2 border-gold bg-cream"
+                  className="absolute top-1.5 -left-[2.15rem] h-3 w-3 border border-forest bg-cream"
                   aria-hidden
                 />
-                <p className="font-display text-xl text-gold-deep italic">
-                  {item.years}
-                </p>
-                <h3 className="mt-1 font-display text-2xl text-forest italic">
+                <p className="year-mark">{item.years}</p>
+                <h3 className="mt-1 font-display text-2xl text-forest font-semibold tracking-tight">
                   {item.degree}
                 </h3>
                 <p className="mt-1 text-muted">{item.school}</p>
@@ -172,17 +164,15 @@ export default function CvPage() {
         {/* Appointments */}
         <section>
           <SectionTitle kicker="02" title="Academic appointments" />
-          <ul className="divide-y divide-gold/25 border-y border-gold/25">
+          <ul className="divide-y divide-[var(--line)] border-y border-[var(--line)]">
             {appointments.map((item) => (
               <li
                 key={item.title + item.years}
                 className="grid gap-2 py-6 md:grid-cols-12"
               >
-                <p className="font-display text-gold-deep italic md:col-span-3">
-                  {item.years}
-                </p>
+                <p className="year-mark md:col-span-3">{item.years}</p>
                 <div className="md:col-span-9">
-                  <p className="font-display text-xl text-forest italic">
+                  <p className="font-display text-xl font-semibold tracking-tight text-forest">
                     {item.title}
                   </p>
                   <p className="mt-1 text-muted">{item.place}</p>
@@ -204,7 +194,7 @@ export default function CvPage() {
                 <p className="text-[0.68rem] font-semibold tracking-[0.16em] text-gold-deep uppercase">
                   {p.years} · {p.role}
                 </p>
-                <h3 className="mt-3 font-display text-xl text-forest italic">
+                <h3 className="mt-3 font-display text-xl font-semibold tracking-tight text-forest">
                   {p.title}
                 </h3>
                 <p className="mt-2 text-sm text-muted">{p.funder}</p>
@@ -220,7 +210,7 @@ export default function CvPage() {
             {researchInterests.map((interest) => (
               <li
                 key={interest}
-                className="rounded-full border border-gold/40 bg-cream px-4 py-2 text-sm text-forest"
+                className="border border-[var(--line)] bg-white px-4 py-2 text-sm text-forest"
               >
                 {interest}
               </li>
@@ -239,7 +229,7 @@ export default function CvPage() {
             {mentees.map((m) => (
               <li key={m.name} className="paper-card p-6">
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <p className="font-display text-2xl text-forest italic">
+                  <p className="font-display text-2xl text-forest font-semibold tracking-tight">
                     {m.name}
                   </p>
                   <p className="text-[0.68rem] font-semibold tracking-[0.14em] text-gold-deep uppercase">
@@ -263,10 +253,8 @@ export default function CvPage() {
             <ul className="space-y-5">
               {leadership.map((item) => (
                 <li key={item.title}>
-                  <p className="font-display text-gold-deep italic">
-                    {item.years}
-                  </p>
-                  <p className="font-display text-xl text-forest italic">
+                  <p className="year-mark">{item.years}</p>
+                  <p className="font-display text-xl font-semibold tracking-tight text-forest">
                     {item.title}
                   </p>
                   <p className="mt-1 text-sm text-muted">{item.place}</p>
@@ -287,7 +275,7 @@ export default function CvPage() {
               {skills.map((s) => (
                 <li
                   key={s}
-                  className="border border-gold/30 px-3 py-1 text-xs text-forest"
+                  className="border border-[var(--line)] px-3 py-1 text-xs text-forest"
                 >
                   {s}
                 </li>
@@ -299,12 +287,10 @@ export default function CvPage() {
         {/* Conferences */}
         <section>
           <SectionTitle kicker="08" title="Conferences & workshops" />
-          <ul className="divide-y divide-gold/25 border-y border-gold/25">
+          <ul className="divide-y divide-[var(--line)] border-y border-[var(--line)]">
             {conferences.map((c) => (
               <li key={c.title + c.year} className="grid gap-2 py-5 md:grid-cols-12">
-                <p className="font-display text-gold-deep italic md:col-span-2">
-                  {c.year}
-                </p>
+                <p className="year-mark md:col-span-2">{c.year}</p>
                 <div className="md:col-span-10">
                   <p className="font-medium text-forest">{c.title}</p>
                   <p className="mt-1 text-sm text-muted">{c.authors}</p>
@@ -324,12 +310,10 @@ export default function CvPage() {
         {/* Publications */}
         <section>
           <SectionTitle kicker="09" title="Selected publications" />
-          <ol className="divide-y divide-gold/25 border-y border-gold/25">
+          <ol className="divide-y divide-[var(--line)] border-y border-[var(--line)]">
             {allPubs.map((pub, i) => (
               <li key={pub.title} className="grid gap-2 py-6 md:grid-cols-12">
-                <p className="font-display text-gold-deep italic md:col-span-2">
-                  {pub.year}
-                </p>
+                <p className="year-mark md:col-span-2">{pub.year}</p>
                 <div className="md:col-span-10">
                   {pub.href ? (
                     <a

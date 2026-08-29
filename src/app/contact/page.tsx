@@ -16,13 +16,13 @@ export default function ContactPage() {
     <main>
       <PageIntro
         size="compact"
-        kicker="Get involved"
-        title="The door is a letter, not a megaphone"
-        lede="Volunteers, teachers, journalists, and neighbours — write with your name and your town. The briefing list is for those who prefer a quiet update to a noisy feed."
+        kicker="Correspondence"
+        title="Write to the office"
+        lede="Volunteers, teachers, journalists, and partners — address the office with your name, your institution or town, and the nature of the enquiry."
       />
       <section className="mx-auto grid max-w-6xl gap-12 px-5 py-12 md:grid-cols-12 md:px-8 md:py-16">
         <div className="md:col-span-4">
-          <h2 className="font-display text-3xl text-forest italic">
+          <h2 className="font-display text-3xl text-forest font-semibold tracking-tight">
             Correspondence
           </h2>
           <div className="paper-card mt-6 space-y-4 p-6 text-sm leading-relaxed text-muted">

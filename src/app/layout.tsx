@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { Fraunces, Source_Sans_3 } from "next/font/google";
+import { Inter, Source_Serif_4 } from "next/font/google";
 import { SiteChrome } from "@/components/SiteChrome";
 import { person, site } from "@/content/site";
 import "./globals.css";
 
-const display = Fraunces({
-  variable: "--font-fraunces",
+const display = Source_Serif_4({
+  variable: "--font-serif-display",
   subsets: ["latin"],
   style: ["normal", "italic"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const body = Source_Sans_3({
-  variable: "--font-source",
+const body = Inter({
+  variable: "--font-sans-body",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     type: "profile",
     locale: "en_KE",
     siteName: person.displayName,
-    title: `${person.displayName} — Educator, Advocate, Servant Leader`,
+    title: `${person.displayName} — Educator, Scholar, Public Servant`,
     description: site.description,
   },
   twitter: {

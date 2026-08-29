@@ -26,7 +26,6 @@ function buildSlides(): CarouselSlide[] {
       caption: i === 0 ? "Dr. Joel Okutoyi" : "In service",
       credit: "Official photograph",
     }));
-    // Keep carousel moving when only one official photo exists
     return shots.length >= 2 ? shots : [...shots, ...placeStudies];
   }
 
@@ -55,67 +54,68 @@ export function HomeSections() {
 
   return (
     <>
-      <section id="about-snapshot" className="bg-forest py-16 text-cream md:py-20">
-        <div className="mx-auto grid max-w-5xl items-center gap-10 px-6 md:grid-cols-[220px_1fr] md:gap-12 md:px-8">
-          <Reveal variant="scale" className="mx-auto md:mx-0">
-            <Portrait
-              size="xl"
-              onDark
-              className="mx-auto transition duration-500 hover:scale-[1.02]"
-            />
+      <section id="about-snapshot" className="bg-cream py-16 md:py-24">
+        <div className="mx-auto grid max-w-6xl items-start gap-12 px-5 md:grid-cols-12 md:gap-16 md:px-8">
+          <Reveal className="md:col-span-4">
+            <Portrait size="xl" className="mx-auto md:mx-0" />
           </Reveal>
-          <Reveal className="space-y-6 text-center md:text-left" delay={80}>
-            <p className="text-lg leading-relaxed text-cream/85 lg:text-xl">
+          <Reveal className="md:col-span-8" delay={60}>
+            <p className="kicker">Biography</p>
+            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-forest md:text-4xl">
+              A scholar formed in Kenyan classrooms
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-muted">
               {homeBio}
             </p>
-            <div className="pt-1">
-              <Link
-                href="/about"
-                className="btn-executive btn-executive-outline inline-block rounded-full border-2 border-gold px-8 py-3 text-sm font-semibold tracking-wide text-gold uppercase transition hover:bg-gold hover:text-forest"
-              >
-                Read full bio →
-              </Link>
-            </div>
+            <Link
+              href="/about"
+              className="mt-8 inline-flex border border-forest bg-forest px-6 py-3 text-[0.72rem] font-semibold tracking-[0.12em] text-cream uppercase transition hover:bg-forest-mid"
+            >
+              Full biography
+            </Link>
           </Reveal>
         </div>
       </section>
 
-      <section className="bg-cream px-6 py-16 md:px-8 md:py-20">
+      <section className="border-y border-[var(--line)] bg-white px-5 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-6xl">
-          <TextReveal
-            as="h2"
-            text="Global impact & recognition"
-            className="mb-10 text-center font-display text-4xl text-forest italic md:text-5xl"
-          />
+          <div className="mb-12 max-w-2xl">
+            <p className="kicker">Impact &amp; geography</p>
+            <TextReveal
+              as="h2"
+              text="Research with a public vocation"
+              className="mt-3 font-display text-3xl font-semibold tracking-tight text-forest md:text-4xl"
+            />
+          </div>
 
-          <div className="grid items-start gap-8 md:grid-cols-[52fr_48fr] lg:gap-10">
+          <div className="grid items-stretch gap-8 md:grid-cols-2 lg:gap-10">
             <Reveal variant="left">
               <RecognitionCarousel slides={slides} />
             </Reveal>
 
             <Reveal
               variant="right"
-              delay={80}
-              className="relative mx-auto aspect-square w-full max-w-[540px]"
+              delay={60}
+              className="relative min-h-[360px] md:min-h-full"
             >
               <MotionImage
                 src="/images/western-kenya-hills.jpg"
                 alt="Western Kenya — the geography of his research and public vocation."
                 fill
-                frameClassName="absolute inset-0 rounded-2xl border border-gold/20 bg-cream-deep shadow-md"
+                frameClassName="absolute inset-0 border border-[var(--line)]"
                 imageClassName="object-cover"
-                sizes="(min-width: 768px) 48vw, 100vw"
+                sizes="(min-width: 768px) 50vw, 100vw"
               />
-              <div className="absolute inset-0 z-10 flex flex-col justify-end rounded-2xl bg-gradient-to-t from-forest/85 via-forest/35 to-transparent p-6 md:p-8">
-                <p className="text-[0.7rem] font-semibold tracking-[0.18em] text-gold uppercase">
-                  Geography of service
+              <div className="absolute inset-x-0 bottom-0 bg-forest/92 p-6 md:p-8">
+                <p className="text-[0.65rem] font-semibold tracking-[0.14em] text-gold-soft uppercase">
+                  Geography of research
                 </p>
-                <p className="mt-2 font-display text-2xl text-cream italic md:text-3xl">
+                <p className="mt-2 font-display text-2xl text-cream md:text-3xl">
                   Kakamega · Kisumu · Dadaab · Butere
                 </p>
-                <p className="mt-3 max-w-sm text-sm leading-relaxed text-cream/85">
-                  Classrooms, funded projects, and the constituency he is
-                  preparing to serve in 2032.
+                <p className="mt-3 max-w-sm text-sm leading-relaxed text-cream/75">
+                  Classrooms, funded projects, and the Western Kenya communities
+                  to which the scholarship is accountable.
                 </p>
               </div>
             </Reveal>

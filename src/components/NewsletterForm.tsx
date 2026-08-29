@@ -47,13 +47,13 @@ export function NewsletterForm({ dark = false }: { dark?: boolean }) {
         placeholder="Your email"
         className={
           dark
-            ? "flex-1 border border-gold/40 bg-transparent px-4 py-3 text-cream placeholder:text-cream/50"
-            : "flex-1 border border-gold/40 bg-cream px-4 py-3 text-ink placeholder:text-muted"
+            ? "flex-1 border border-cream/25 bg-transparent px-4 py-3 text-cream placeholder:text-cream/50"
+            : "flex-1 border border-[var(--line)] bg-white px-4 py-3 text-ink placeholder:text-muted"
         }
       />
       <button
         type="submit"
-        className="rounded-full bg-gold px-6 py-3 text-[0.75rem] font-semibold tracking-[0.16em] text-forest uppercase transition hover:bg-gold-soft"
+        className="bg-forest px-6 py-3 text-[0.75rem] font-semibold tracking-[0.12em] text-cream uppercase transition hover:bg-forest-mid"
       >
         Subscribe
       </button>

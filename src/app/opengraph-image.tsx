@@ -14,55 +14,65 @@ export default async function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#13241c",
+          background: "#0e1520",
           padding: "64px 72px",
-          fontFamily: "Georgia, serif",
+          fontFamily: "Georgia, 'Times New Roman', serif",
         }}
       >
         <div
           style={{
             display: "flex",
-            width: 48,
-            height: 6,
-            background: "linear-gradient(90deg, #171412 0%, #9e1b1b 50%, #1c5c38 100%)",
+            width: 56,
+            height: 2,
+            background: "#9a8158",
           }}
         />
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
-              color: "#c4a36a",
-              fontSize: 22,
-              letterSpacing: "0.28em",
+              color: "#d4c4a8",
+              fontSize: 18,
+              letterSpacing: "0.16em",
               textTransform: "uppercase",
-              marginBottom: 24,
+              marginBottom: 28,
+              fontFamily: "system-ui, sans-serif",
             }}
           >
-            Maseno University · Butere 2032
+            Maseno University · Inclusive education · Public service
           </div>
           <div
             style={{
-              color: "#f3ebe0",
-              fontSize: 72,
+              color: "#f6f4f0",
+              fontSize: 68,
               lineHeight: 1.05,
-              fontStyle: "italic",
-              maxWidth: 900,
+              fontWeight: 600,
+              maxWidth: 920,
             }}
           >
             Dr. Joel Okutoyi, PhD
           </div>
           <div
             style={{
-              color: "#e2d0ab",
-              fontSize: 28,
-              marginTop: 20,
+              color: "#d4c4a8",
+              fontSize: 26,
+              marginTop: 22,
               maxWidth: 820,
+              fontFamily: "system-ui, sans-serif",
             }}
           >
             Senior Lecturer · Special Needs Education · Okutoyi Foundation
           </div>
         </div>
-        <div style={{ color: "#c4a36a", fontSize: 20, letterSpacing: "0.12em" }}>
-          Educator · Advocate · Servant Leader
+        <div
+          style={{
+            color: "#9a8158",
+            fontSize: 16,
+            letterSpacing: "0.14em",
+            textTransform: "uppercase",
+            fontFamily: "system-ui, sans-serif",
+          }}
+        >
+          Scholar · Educator · Public servant
         </div>
       </div>
     ),

@@ -76,7 +76,7 @@ export function ContactForm() {
     return (
       <div className="paper-card p-8">
         <p className="kicker">Mail client opened</p>
-        <h2 className="mt-3 font-display text-3xl text-forest italic">
+        <h2 className="mt-3 font-display text-3xl text-forest font-semibold tracking-tight">
           Please send the draft in your email app
         </h2>
         <p className="mt-4 text-muted">
@@ -98,7 +98,7 @@ export function ContactForm() {
   }
 
   const field =
-    "mt-2 w-full border border-gold/35 bg-cream px-4 py-3 text-ink outline-none transition focus:border-gold";
+    "mt-2 w-full border border-[var(--line)] bg-white px-4 py-3 text-ink outline-none transition focus:border-forest";
 
   return (
     <form
@@ -171,7 +171,7 @@ export function ContactForm() {
       ) : null}
       <button
         type="submit"
-        className="rounded-full bg-forest px-8 py-3 text-[0.78rem] font-semibold tracking-[0.18em] text-cream uppercase transition hover:bg-forest-mid"
+        className="bg-forest px-8 py-3 text-[0.78rem] font-semibold tracking-[0.18em] text-cream uppercase transition hover:bg-forest-mid"
       >
         Open in email →
       </button>

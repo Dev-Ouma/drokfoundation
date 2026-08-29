@@ -24,7 +24,7 @@ export default function WorkPage() {
         <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="kicker">Themes</p>
-            <h2 className="mt-2 font-display text-3xl text-forest italic">
+            <h2 className="mt-2 font-display text-3xl text-forest font-semibold tracking-tight">
               Where the scholarship lives
             </h2>
           </div>
@@ -48,7 +48,7 @@ export default function WorkPage() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {researchThemes.map((theme) => (
             <Reveal key={theme.title} className="paper-card p-6">
-              <h3 className="font-display text-2xl text-forest italic">
+              <h3 className="font-display text-2xl text-forest font-semibold tracking-tight">
                 {theme.title}
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-muted">
@@ -60,7 +60,7 @@ export default function WorkPage() {
 
         <div className="mt-16">
           <p className="kicker">Funded research</p>
-          <h2 className="mt-2 font-display text-3xl text-forest italic">
+          <h2 className="mt-2 font-display text-3xl text-forest font-semibold tracking-tight">
             Projects on the record
           </h2>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
@@ -69,7 +69,7 @@ export default function WorkPage() {
                 <p className="text-[0.68rem] font-semibold tracking-[0.16em] text-gold-deep uppercase">
                   {p.years} · {p.role}
                 </p>
-                <h3 className="mt-3 font-display text-xl text-forest italic">
+                <h3 className="mt-3 font-display text-xl font-semibold tracking-tight text-forest">
                   {p.title}
                 </h3>
                 <p className="mt-2 text-sm text-muted">{p.funder}</p>
@@ -79,11 +79,11 @@ export default function WorkPage() {
         </div>
       </section>
 
-      <section className="border-y border-gold/20 bg-forest text-cream">
+      <section className="border-y border-[var(--line)] bg-forest text-cream">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-12 md:px-8">
           <div className="md:col-span-4">
-            <p className="kicker text-gold">{ai4ksl.role}</p>
-            <h2 className="mt-3 font-display text-4xl italic">{ai4ksl.name}</h2>
+            <p className="kicker text-gold-soft">{ai4ksl.role}</p>
+            <h2 className="mt-3 font-display text-4xl font-semibold tracking-tight">{ai4ksl.name}</h2>
             <p className="mt-4 text-sm text-gold-soft">{ai4ksl.fullName}</p>
           </div>
           <div className="md:col-span-8 space-y-4 leading-relaxed text-cream/80">
@@ -110,19 +110,17 @@ export default function WorkPage() {
 
       <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
         <p className="kicker">Publications</p>
-        <h2 className="mt-3 font-display text-4xl text-forest italic">
+        <h2 className="mt-3 font-display text-4xl text-forest font-semibold tracking-tight">
           Selected papers
         </h2>
         <p className="mt-4 max-w-2xl text-muted">
           Titles and venues below are taken from public academic records. Where
           a stable DOI or publisher page exists, it is linked.
         </p>
-        <ol className="mt-10 divide-y divide-gold/25 border-y border-gold/25">
+        <ol className="mt-10 divide-y divide-[var(--line)] border-y border-[var(--line)]">
           {publications.map((pub) => (
             <li key={pub.title} className="grid gap-3 py-8 md:grid-cols-12">
-              <p className="font-display text-2xl text-gold-deep italic md:col-span-2">
-                {pub.year}
-              </p>
+              <p className="year-mark md:col-span-2">{pub.year}</p>
               <div className="md:col-span-10">
                 <a
                   href={pub.href}

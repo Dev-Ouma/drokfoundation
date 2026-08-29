@@ -15,26 +15,24 @@ export default function SpeakingPage() {
     <main>
       <PageIntro
         kicker="Speaking"
-        title="Invite the classroom into the room"
-        lede="Workshops with teachers of the deaf, conference papers on Kenyan Sign Language and AI, and an open invitation for keynotes, school visits, and community forums in Butere and beyond."
+        title="Lectures, workshops, and public forums"
+        lede="Workshops with teachers of the deaf, conference papers on Kenyan Sign Language and AI, and invitations for keynotes, school visits, and community forums."
       />
       <section className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
         <ul className="space-y-0">
           {speaking.map((item) => (
             <li
               key={item.title}
-              className="grid gap-4 border-t border-gold/25 py-10 md:grid-cols-12"
+              className="grid gap-4 border-t border-[var(--line)] py-10 md:grid-cols-12"
             >
               <Reveal className="md:col-span-3">
-                <p className="font-display text-2xl text-gold-deep italic">
-                  {item.year}
-                </p>
+                <p className="year-mark">{item.year}</p>
                 <p className="mt-2 text-[0.68rem] font-semibold tracking-[0.16em] text-muted uppercase">
                   {item.kind}
                 </p>
               </Reveal>
               <Reveal className="md:col-span-9" delay={40}>
-                <h2 className="font-display text-2xl text-forest italic md:text-3xl">
+                <h2 className="font-display text-2xl text-forest font-semibold tracking-tight md:text-3xl">
                   {item.title}
                 </h2>
                 <p className="mt-3 max-w-2xl leading-relaxed text-muted">
@@ -57,7 +55,7 @@ export default function SpeakingPage() {
 
         <Reveal className="paper-card mt-12 p-8 md:p-10">
           <p className="kicker">Book a talk</p>
-          <h2 className="mt-3 font-display text-3xl text-forest italic">
+          <h2 className="mt-3 font-display text-3xl text-forest font-semibold tracking-tight">
             Schools, conferences, and Butere forums
           </h2>
           <p className="mt-4 max-w-xl leading-relaxed text-muted">
@@ -67,7 +65,7 @@ export default function SpeakingPage() {
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-block rounded-full bg-forest px-8 py-3 text-[0.75rem] font-semibold tracking-[0.16em] text-cream uppercase transition hover:bg-forest-mid"
+            className="mt-8 inline-block bg-forest px-8 py-3 text-[0.75rem] font-semibold tracking-[0.16em] text-cream uppercase transition hover:bg-forest-mid"
           >
             Request a speaking engagement
           </Link>

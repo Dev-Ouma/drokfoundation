@@ -1,28 +1,23 @@
 import { Reveal } from "@/components/Reveal";
-import { TextReveal } from "@/components/motion/TextReveal";
 import { closingQuote } from "@/content/site";
 
 export function ClosingQuote() {
   return (
-    <section className="bg-cream px-6 py-16 md:py-20">
-      <Reveal className="relative mx-auto max-w-3xl text-center">
-        <p
-          className="pointer-events-none absolute -top-2 left-2 font-display text-6xl leading-none text-gold/30 select-none md:-top-4 md:left-0 md:text-7xl"
-          aria-hidden
-        >
-          “
-        </p>
-        <blockquote className="px-2 pt-6 md:pt-4">
-          <TextReveal
-            as="p"
-            text={closingQuote.text}
-            className="font-display text-2xl leading-snug text-forest italic md:text-4xl md:leading-relaxed"
-          />
-          <footer className="mt-6 text-base font-light text-muted md:text-lg">
-            — {closingQuote.attribution}
-          </footer>
-        </blockquote>
-        <div className="rule-draw mx-auto mt-8 h-px w-24 bg-gradient-to-r from-transparent via-gold to-transparent" />
+    <section className="bg-forest px-5 py-20 text-cream md:px-8 md:py-28">
+      <Reveal className="mx-auto max-w-6xl">
+        <div className="max-w-3xl">
+          <p className="text-[0.65rem] font-semibold tracking-[0.16em] text-gold-soft uppercase">
+            Guiding conviction
+          </p>
+          <blockquote className="mt-6 border-l border-gold/45 pl-6 md:pl-8">
+            <p className="font-display text-2xl leading-snug font-medium tracking-tight md:text-[2.15rem] md:leading-[1.28]">
+              {closingQuote.text}
+            </p>
+            <footer className="mt-8 text-sm tracking-[0.08em] text-cream/50 uppercase">
+              {closingQuote.attribution}
+            </footer>
+          </blockquote>
+        </div>
       </Reveal>
     </section>
   );

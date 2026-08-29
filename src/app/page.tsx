@@ -7,8 +7,7 @@ import { ServiceTeasers } from "@/components/home/ServiceTeasers";
 import { getMedia } from "@/lib/media";
 
 /**
- * Home mirrors craigcheryl.com brevity, plus Vision/Foundation teasers.
- * Official portrait appears automatically when public/images/portrait.* exists.
+ * Institutional home: hero, record, biography, geography, public work, partners.
  */
 export default function HomePage() {
   const media = getMedia();

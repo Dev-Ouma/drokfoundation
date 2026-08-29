@@ -2,46 +2,78 @@ import Link from "next/link";
 import { footerNav, person, site } from "@/content/site";
 
 export function SiteFooter() {
+  const mid = Math.ceil(footerNav.length / 2);
+  const colA = footerNav.slice(0, mid);
+  const colB = footerNav.slice(mid);
+
   return (
-    <footer className="border-t border-gold/10 bg-forest">
-      <div className="mx-auto max-w-5xl px-6 py-10 md:py-12">
-        <div className="mb-8 grid gap-8 md:grid-cols-[1.2fr_1fr]">
-          <div>
-            <p className="font-display text-xl text-cream italic">
-              Dr. {person.givenName} {person.familyName}
+    <footer className="mt-auto border-t border-[var(--line)] bg-forest text-cream">
+      <div className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-16">
+        <div className="grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-5">
+            <p className="font-display text-2xl font-semibold tracking-tight">
+              {person.displayName}
             </p>
-            <p className="mt-2 max-w-sm text-sm leading-relaxed text-cream/70">
-              {person.role}, {person.institution} — preparing for public
-              service in Butere Constituency, 2032.
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-cream/70">
+              {person.role} at {person.institution}. Research, teaching, and
+              public service in inclusive education and the dignity of persons
+              with disabilities.
             </p>
             <a
               href={`mailto:${site.email}`}
-              className="mt-4 inline-block text-sm text-gold transition hover:text-gold-soft"
+              className="mt-5 inline-block text-sm text-gold-soft transition hover:text-cream"
             >
               {site.email}
             </a>
           </div>
-          <nav aria-label="Footer">
-            <p className="mb-3 text-[0.65rem] font-semibold tracking-[0.18em] text-cream/55 uppercase">
-              Explore
-            </p>
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5">
-              {footerNav.map((item) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-cream/75 transition hover:text-gold"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+
+          <div className="grid grid-cols-2 gap-8 md:col-span-4 md:col-start-8">
+            <nav aria-label="Footer primary">
+              <p className="mb-4 text-[0.65rem] font-semibold tracking-[0.14em] text-cream/50 uppercase">
+                Navigate
+              </p>
+              <ul className="space-y-2.5">
+                {colA.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="text-sm text-cream/75 transition hover:text-cream"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <nav aria-label="Footer secondary">
+              <p className="mb-4 text-[0.65rem] font-semibold tracking-[0.14em] text-cream/50 uppercase">
+                Resources
+              </p>
+              <ul className="space-y-2.5">
+                {colB.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="text-sm text-cream/75 transition hover:text-cream"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
         </div>
-        <p className="border-t border-white/10 pt-6 text-center text-sm text-cream/65">
-          © {new Date().getFullYear()} {person.displayName} — All rights reserved
-        </p>
+
+        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-cream/50 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {new Date().getFullYear()} {person.displayName}. All rights
+            reserved.
+          </p>
+          <p className="tracking-wide uppercase">
+            Maseno University · Western Kenya
+          </p>
+        </div>
       </div>
     </footer>
   );

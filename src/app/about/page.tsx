@@ -1,7 +1,6 @@
 import { PageIntro } from "@/components/PageIntro";
 import { Portrait } from "@/components/Portrait";
 import { Reveal } from "@/components/Reveal";
-import { Stagger } from "@/components/motion/Stagger";
 import { education } from "@/content/cv";
 import { about, person, site, timeline } from "@/content/site";
 import type { Metadata } from "next";
@@ -17,17 +16,17 @@ export default function AboutPage() {
   return (
     <main>
       <PageIntro
-        kicker="About"
+        kicker="Biography"
         title="The long apprenticeship of a teacher"
         lede={about.lede}
       />
       <section className="mx-auto grid max-w-6xl gap-14 px-5 py-16 md:grid-cols-12 md:px-8 md:py-24">
         <Reveal className="md:col-span-4">
           <Portrait size="xl" className="mb-10" />
-          <dl className="space-y-6 text-sm">
+          <dl className="space-y-7 text-sm">
             <div>
               <dt className="kicker">Name</dt>
-              <dd className="mt-2 font-display text-2xl text-forest italic">
+              <dd className="mt-2 font-display text-2xl font-semibold tracking-tight text-forest">
                 {person.displayName}
               </dd>
             </div>
@@ -57,18 +56,21 @@ export default function AboutPage() {
               <dt className="kicker">Correspondence</dt>
               <dd className="mt-2 space-y-1">
                 <a
-                  className="block text-forest underline"
+                  className="block text-forest underline decoration-[var(--line)] underline-offset-4 hover:decoration-forest"
                   href={`mailto:${person.email}`}
                 >
                   {person.email}
                 </a>
                 <a
-                  className="block text-forest underline"
+                  className="block text-forest underline decoration-[var(--line)] underline-offset-4 hover:decoration-forest"
                   href={`mailto:${person.emailPersonal}`}
                 >
                   {person.emailPersonal}
                 </a>
-                <a className="block text-forest underline" href={person.phoneHref}>
+                <a
+                  className="block text-forest underline decoration-[var(--line)] underline-offset-4 hover:decoration-forest"
+                  href={person.phoneHref}
+                >
                   {person.phone}
                 </a>
               </dd>
@@ -76,9 +78,9 @@ export default function AboutPage() {
             <div>
               <Link
                 href="/cv"
-                className="inline-block text-[0.75rem] font-semibold tracking-[0.16em] text-gold-deep uppercase"
+                className="inline-block text-[0.72rem] font-semibold tracking-[0.14em] text-forest uppercase"
               >
-                Full curriculum vitae →
+                Full curriculum vitae
               </Link>
             </div>
           </dl>
@@ -90,57 +92,56 @@ export default function AboutPage() {
         </Reveal>
       </section>
 
-      <section className="border-t border-gold/20 bg-forest text-cream">
+      <section className="border-t border-[var(--line)] bg-white">
         <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
-          <p className="kicker text-gold">Education</p>
-          <h2 className="mt-3 font-display text-4xl italic">
+          <p className="kicker">Education</p>
+          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-forest md:text-4xl">
             From Shitoyi to the doctorate
           </h2>
-          <Stagger
-            as="ol"
-            className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-          >
+          <ol className="mt-10 divide-y divide-[var(--line)] border-y border-[var(--line)]">
             {education.map((item) => (
               <li
                 key={item.years}
-                className="lift border border-gold/25 p-5"
+                className="grid gap-2 py-6 md:grid-cols-12 md:gap-6"
               >
-                <p className="font-display text-gold italic">{item.years}</p>
-                <p className="mt-2 font-display text-xl italic">{item.degree}</p>
-                <p className="mt-2 text-sm text-cream/70">{item.school}</p>
+                <p className="year-mark md:col-span-3">{item.years}</p>
+                <div className="md:col-span-9">
+                  <p className="font-display text-xl font-semibold tracking-tight text-forest">
+                    {item.degree}
+                  </p>
+                  <p className="mt-1 text-sm text-muted">{item.school}</p>
+                </div>
               </li>
             ))}
-          </Stagger>
+          </ol>
           <a
             href={site.cvPdf}
-            className="mt-10 inline-block text-[0.75rem] font-semibold tracking-[0.16em] text-gold uppercase"
+            className="mt-10 inline-block text-[0.72rem] font-semibold tracking-[0.14em] text-forest uppercase"
             rel="noopener noreferrer"
             target="_blank"
           >
-            Download PDF CV →
+            Download PDF CV
           </a>
         </div>
       </section>
 
-      <section className="border-t border-gold/20 bg-cream-deep/50">
+      <section className="border-t border-[var(--line)] bg-cream">
         <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
           <p className="kicker">A life in sequence</p>
-          <h2 className="mt-3 font-display text-4xl text-forest italic">
+          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-forest md:text-4xl">
             Timeline
           </h2>
-          <ol className="mt-12 space-y-0">
+          <ol className="mt-12">
             {timeline.map((item, i) => (
               <Reveal
                 key={item.year + item.title}
                 as="li"
                 delay={40}
-                className="grid gap-4 border-t border-gold/25 py-8 md:grid-cols-12"
+                className="grid gap-4 border-t border-[var(--line)] py-8 md:grid-cols-12"
               >
-                <p className="font-display text-2xl text-gold-deep italic md:col-span-3">
-                  {item.year}
-                </p>
+                <p className="year-mark md:col-span-3">{item.year}</p>
                 <div className="md:col-span-9">
-                  <h3 className="font-display text-2xl text-forest italic">
+                  <h3 className="font-display text-2xl font-semibold tracking-tight text-forest">
                     {item.title}
                   </h3>
                   <p className="mt-2 leading-relaxed text-muted">{item.body}</p>
@@ -154,11 +155,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-gold/20 bg-cream px-5 py-16 md:px-8 md:py-20">
-        <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-gold/25 p-8">
-            <p className="kicker">Political vocation</p>
-            <h2 className="mt-3 font-display text-3xl text-forest italic">
+      <section className="border-t border-[var(--line)] bg-cream px-5 py-16 md:px-8 md:py-20">
+        <div className="mx-auto grid max-w-6xl gap-px bg-[var(--line)] md:grid-cols-2">
+          <div className="bg-cream p-8 md:p-10">
+            <p className="kicker">Public leadership</p>
+            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-forest">
               Toward Butere · 2032
             </h2>
             <p className="mt-4 text-muted">
@@ -167,25 +168,25 @@ export default function AboutPage() {
             </p>
             <Link
               href="/vision"
-              className="mt-6 inline-block text-[0.75rem] font-semibold tracking-[0.16em] text-gold-deep uppercase"
+              className="mt-6 inline-block text-[0.72rem] font-semibold tracking-[0.14em] text-forest uppercase"
             >
-              Vision 2032 →
+              Vision 2032
             </Link>
           </div>
-          <div className="rounded-2xl border border-gold/25 bg-forest p-8 text-cream">
-            <p className="kicker text-gold">Philanthropy</p>
-            <h2 className="mt-3 font-display text-3xl italic">
+          <div className="bg-forest p-8 text-cream md:p-10">
+            <p className="kicker text-gold-soft">Philanthropy</p>
+            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight">
               Okutoyi Foundation
             </h2>
-            <p className="mt-4 text-cream/80">
+            <p className="mt-4 text-cream/75">
               Education, health, socio-economic dignity, and outreach — the
-              service vehicle beneath the political ambition.
+              service institution that must outlast any ballot.
             </p>
             <Link
               href="/foundation"
-              className="mt-6 inline-block text-[0.75rem] font-semibold tracking-[0.16em] text-gold uppercase"
+              className="mt-6 inline-block text-[0.72rem] font-semibold tracking-[0.14em] text-gold-soft uppercase"
             >
-              Visit the Foundation →
+              Visit the Foundation
             </Link>
           </div>
         </div>

@@ -15,7 +15,6 @@ type Props = {
   slides: CarouselSlide[];
 };
 
-/** Soft crossfade carousel — official photos when provided, else atmospheric. */
 export function RecognitionCarousel({ slides }: Props) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -25,7 +24,7 @@ export function RecognitionCarousel({ slides }: Props) {
     if (paused || safe.length < 2) return;
     const id = setInterval(
       () => setIndex((i) => (i + 1) % safe.length),
-      4200,
+      4800,
     );
     return () => clearInterval(id);
   }, [paused, safe.length]);
@@ -36,7 +35,7 @@ export function RecognitionCarousel({ slides }: Props) {
 
   return (
     <div
-      className="img-zoom relative h-[380px] overflow-hidden rounded-2xl bg-forest/10 shadow-[0_20px_50px_rgba(19,36,28,0.12)] md:h-[520px]"
+      className="relative aspect-[4/5] overflow-hidden border border-[var(--line)] bg-cream-deep md:aspect-auto md:h-full md:min-h-[480px]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
@@ -55,7 +54,7 @@ export function RecognitionCarousel({ slides }: Props) {
         <div
           key={slide.src}
           className={cn(
-            "absolute inset-0 transition-opacity duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
+            "absolute inset-0 transition-opacity duration-700",
             i === index ? "opacity-100" : "opacity-0",
           )}
           aria-hidden={i !== index}
@@ -65,68 +64,47 @@ export function RecognitionCarousel({ slides }: Props) {
             alt={slide.alt}
             fill
             className="object-cover object-[45%_20%]"
-            sizes="(min-width: 768px) 52vw, 100vw"
+            sizes="(min-width: 768px) 50vw, 100vw"
             priority={i === 0}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-forest/15 to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 p-5 pb-12 md:p-7 md:pb-14">
-            <p className="font-display text-xl text-cream italic md:text-2xl">
+          <div className="absolute inset-x-0 bottom-0 bg-forest/90 p-5 pb-14 md:p-7 md:pb-16">
+            <p className="font-display text-xl text-cream md:text-2xl">
               {slide.caption}
             </p>
             {slide.credit ? (
-              <p className="mt-1 text-xs text-gold-soft">{slide.credit}</p>
+              <p className="mt-1 text-xs text-cream/65">{slide.credit}</p>
             ) : null}
           </div>
         </div>
       ))}
 
       {safe.length > 1 ? (
-        <>
+        <div className="absolute right-4 bottom-4 z-10 flex items-center gap-3">
           <button
             type="button"
-            aria-label="Previous photograph"
-            className="absolute top-1/2 left-3 z-10 -translate-y-1/2 rounded-full bg-cream/95 px-2.5 py-1 text-lg text-forest shadow-md transition hover:bg-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
-            onClick={() =>
-              setIndex((i) => (i - 1 + safe.length) % safe.length)
-            }
+            aria-label={paused ? "Resume slideshow" : "Pause slideshow"}
+            className="border border-white/30 bg-forest/60 px-2.5 py-1 text-[0.65rem] font-semibold tracking-wide text-cream uppercase backdrop-blur-sm"
+            onClick={() => setPaused((p) => !p)}
           >
-            ‹
+            {paused ? "Play" : "Pause"}
           </button>
-          <button
-            type="button"
-            aria-label="Next photograph"
-            className="absolute top-1/2 right-3 z-10 -translate-y-1/2 rounded-full bg-cream/95 px-2.5 py-1 text-lg text-forest shadow-md transition hover:bg-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
-            onClick={() => setIndex((i) => (i + 1) % safe.length)}
-          >
-            ›
-          </button>
-          <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 items-center gap-3">
-            <button
-              type="button"
-              aria-label={paused ? "Resume slideshow" : "Pause slideshow"}
-              className="rounded-full bg-cream/90 px-2.5 py-1 text-[0.65rem] font-semibold tracking-wide text-forest uppercase shadow-sm transition hover:bg-gold"
-              onClick={() => setPaused((p) => !p)}
-            >
-              {paused ? "Play" : "Pause"}
-            </button>
-            <div className="flex gap-2">
-              {safe.map((slide, i) => (
-                <button
-                  key={slide.src}
-                  type="button"
-                  aria-label={`Go to photograph ${i + 1}`}
-                  aria-current={i === index ? "true" : undefined}
-                  className={
-                    i === index
-                      ? "h-2 w-8 rounded-full bg-gold transition-all"
-                      : "h-2 w-2 rounded-full bg-white/75 transition-all hover:bg-white"
-                  }
-                  onClick={() => setIndex(i)}
-                />
-              ))}
-            </div>
+          <div className="flex gap-1.5">
+            {safe.map((slide, i) => (
+              <button
+                key={slide.src}
+                type="button"
+                aria-label={`Go to photograph ${i + 1}`}
+                aria-current={i === index ? "true" : undefined}
+                className={
+                  i === index
+                    ? "h-1 w-6 bg-cream"
+                    : "h-1 w-1.5 bg-cream/45 hover:bg-cream/70"
+                }
+                onClick={() => setIndex(i)}
+              />
+            ))}
           </div>
-        </>
+        </div>
       ) : null}
     </div>
   );

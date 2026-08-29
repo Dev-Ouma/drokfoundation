@@ -4,24 +4,19 @@ import { impactMetrics } from "@/content/site";
 
 export function ImpactMetricsBand() {
   return (
-    <section className="border-y border-forest/10 bg-cream py-12 md:py-16">
-      <Stagger className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 sm:grid-cols-3 lg:grid-cols-5 lg:gap-4">
-        {impactMetrics.map((item, i) => (
+    <section className="border-b border-[var(--line)] bg-white">
+      <Stagger className="mx-auto grid max-w-6xl grid-cols-2 gap-px bg-[var(--line)] sm:grid-cols-3 lg:grid-cols-5">
+        {impactMetrics.map((item) => (
           <div
             key={item.label}
-            className={
-              i === impactMetrics.length - 1 && impactMetrics.length % 2 === 1
-                ? "col-span-2 text-center sm:col-span-1"
-                : "text-center"
-            }
+            className="bg-white px-5 py-10 md:px-6 md:py-12"
           >
-            <p className="font-display text-4xl text-forest italic transition duration-300 hover:text-gold lg:text-5xl">
+            <p className="font-display text-3xl font-semibold tracking-tight text-forest md:text-4xl">
               <CountUp value={item.value} />
             </p>
-            <p className="mt-2 text-sm font-medium text-muted md:text-base">
+            <p className="mt-2 text-[0.7rem] font-medium tracking-[0.12em] text-muted uppercase">
               {item.label}
             </p>
-            <div className="rule-draw mx-auto mt-3 h-px w-10 bg-gradient-to-r from-transparent via-gold to-transparent" />
           </div>
         ))}
       </Stagger>
