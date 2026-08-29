@@ -1,4 +1,5 @@
 import { Stagger } from "@/components/motion/Stagger";
+import { CountUp } from "@/components/motion/CountUp";
 import { impactMetrics } from "@/content/site";
 
 export function ImpactMetricsBand() {
@@ -15,11 +16,12 @@ export function ImpactMetricsBand() {
             }
           >
             <p className="font-display text-4xl text-forest italic transition duration-300 hover:text-gold lg:text-5xl">
-              {item.value}
+              <CountUp value={item.value} />
             </p>
             <p className="mt-2 text-sm font-medium text-muted md:text-base">
               {item.label}
             </p>
+            <div className="rule-draw mx-auto mt-3 h-px w-10 bg-gradient-to-r from-transparent via-gold to-transparent" />
           </div>
         ))}
       </Stagger>

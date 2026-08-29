@@ -35,7 +35,7 @@ export function Portrait({ className, size = "lg", onDark = false }: Props) {
       >
         <div
           className={cn(
-            "absolute -inset-1 rounded-full opacity-80",
+            "ring-breathe absolute -inset-1 rounded-full opacity-80",
             onDark
               ? "bg-gradient-to-br from-gold/50 via-gold/15 to-transparent"
               : "bg-gradient-to-br from-gold/60 via-gold/20 to-forest/10",
@@ -44,7 +44,7 @@ export function Portrait({ className, size = "lg", onDark = false }: Props) {
         />
         <div
           className={cn(
-            "relative h-full w-full overflow-hidden rounded-full border-[3px] shadow-[0_20px_50px_rgba(19,36,28,0.25)]",
+            "portrait-glow relative h-full w-full overflow-hidden rounded-full border-[3px] shadow-[0_20px_50px_rgba(19,36,28,0.25)]",
             onDark ? "border-gold/45" : "border-gold/55",
           )}
         >

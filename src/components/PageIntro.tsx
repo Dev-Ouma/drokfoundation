@@ -16,10 +16,10 @@ export function PageIntro({
   size = "default",
 }: Props) {
   return (
-    <header className="border-b border-gold/20 bg-forest text-cream">
+    <header className="promise-band border-b border-gold/20 bg-forest text-cream">
       <div
         className={cn(
-          "mx-auto max-w-6xl px-5 md:px-8",
+          "relative mx-auto max-w-6xl px-5 md:px-8",
           size === "compact"
             ? "pt-24 pb-10 md:pt-28 md:pb-12"
             : "pt-24 pb-12 md:pt-28 md:pb-16",

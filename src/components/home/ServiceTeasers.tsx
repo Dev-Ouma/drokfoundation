@@ -21,7 +21,7 @@ export function ServiceTeasers() {
             <Link
               key={card.href}
               href={card.href}
-              className="lift flex flex-col rounded-2xl border border-gold/25 bg-cream p-8 shadow-sm"
+              className="executive-card flex flex-col rounded-2xl border border-gold/25 bg-cream p-8 shadow-sm"
             >
               <p className="text-[0.65rem] font-semibold tracking-[0.18em] text-gold-deep uppercase">
                 {card.kicker}

@@ -17,18 +17,22 @@ export default function VisionPage() {
     <main>
       <PageIntro kicker={vision.kicker} title={vision.title} lede={vision.lede} />
 
-      <section className="bg-forest text-cream">
-        <div className="mx-auto max-w-4xl px-5 py-14 text-center md:px-8 md:py-16">
+      <section className="promise-band bg-forest text-cream">
+        <div className="relative mx-auto max-w-4xl px-5 py-14 text-center md:px-8 md:py-16">
           <Reveal variant="fade">
             <p className="text-[0.7rem] font-semibold tracking-[0.22em] text-gold uppercase">
               My promise to Kenyans of Butere
             </p>
           </Reveal>
-          <p className="mt-5 font-display text-2xl leading-snug italic md:text-4xl md:leading-relaxed">
-            {vision.promise}
-          </p>
+          <TextReveal
+            as="p"
+            mode="scroll"
+            text={vision.promise}
+            className="mt-5 font-display text-2xl leading-snug italic md:text-4xl md:leading-relaxed"
+          />
           <Reveal delay={200}>
-            <p className="mt-6 text-sm tracking-[0.14em] text-cream/60 uppercase">
+            <div className="rule-draw mx-auto mt-6 h-px w-20 bg-gradient-to-r from-transparent via-gold to-transparent" />
+            <p className="mt-5 text-sm tracking-[0.14em] text-cream/70 uppercase">
               {vision.seat} · {vision.horizon}
             </p>
           </Reveal>
@@ -61,7 +65,7 @@ export default function VisionPage() {
             {pillars.map((pillar) => (
               <div
                 key={pillar.title}
-                className="lift rounded-2xl border border-gold/25 bg-cream p-6 shadow-sm"
+                className="executive-card rounded-2xl border border-gold/25 bg-cream p-6 shadow-sm"
               >
                 <p className="font-display text-3xl text-gold italic">
                   {pillar.roman}
@@ -91,9 +95,12 @@ export default function VisionPage() {
           />
         </Reveal>
         <Stagger as="ol" className="mt-12 grid gap-6 md:grid-cols-3">
-          {vision.path.map((step) => (
-            <li key={step.year} className="border-t-2 border-gold pt-6">
+          {vision.path.map((step, i) => (
+            <li key={step.year} className="path-rail pt-6">
               <p className="text-[0.7rem] font-semibold tracking-[0.16em] text-gold-deep uppercase">
+                <span className="mr-2 font-display text-lg text-gold italic">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 {step.year}
               </p>
               <h3 className="mt-2 font-display text-2xl text-forest italic">
@@ -121,7 +128,7 @@ export default function VisionPage() {
           </div>
           <Link
             href="/foundation"
-            className="shrink-0 rounded-full bg-gold px-8 py-3 text-[0.75rem] font-semibold tracking-[0.16em] text-forest uppercase transition duration-300 hover:bg-gold-soft hover:shadow-lg"
+            className="btn-executive shrink-0 rounded-full bg-gold px-8 py-3 text-[0.75rem] font-semibold tracking-[0.16em] text-forest uppercase"
           >
             Visit the Foundation →
           </Link>

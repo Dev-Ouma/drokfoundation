@@ -71,7 +71,7 @@ export function HomeSections() {
             <div className="pt-1">
               <Link
                 href="/about"
-                className="inline-block rounded-full border-2 border-gold px-8 py-3 text-sm font-semibold tracking-wide text-gold uppercase transition duration-300 hover:bg-gold hover:text-forest"
+                className="btn-executive btn-executive-outline inline-block rounded-full border-2 border-gold px-8 py-3 text-sm font-semibold tracking-wide text-gold uppercase transition hover:bg-gold hover:text-forest"
               >
                 Read full bio →
               </Link>

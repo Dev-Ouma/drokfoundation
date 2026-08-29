@@ -30,10 +30,20 @@ export function Hero({ portraitSrc = null }: Props) {
         className="absolute inset-0 bg-gradient-to-br from-forest/70 via-forest/75 to-forest/85"
         aria-hidden
       />
+      <div
+        className="ambient-orb left-[-8%] top-[18%] h-72 w-72 bg-gold/25"
+        aria-hidden
+      />
+      <div
+        className="ambient-orb ambient-orb--alt right-[-5%] bottom-[12%] h-80 w-80 bg-gold/15"
+        aria-hidden
+      />
+      <div className="hero-light-sweep" aria-hidden />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-28 lg:px-12 lg:py-32">
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="max-w-4xl space-y-5 text-left lg:col-span-7">
+            <div className="rule-draw-load mb-1 h-px w-16 bg-gradient-to-r from-gold to-transparent" />
             <TextReveal
               as="h1"
               mode="load"
@@ -55,13 +65,13 @@ export function Hero({ portraitSrc = null }: Props) {
             <div className="motion-fade-up motion-delay-5 flex flex-wrap gap-3 pt-3 sm:gap-4">
               <Link
                 href="/work"
-                className="rounded-full bg-gold px-8 py-3.5 text-base font-semibold text-forest shadow-md transition duration-300 hover:bg-gold-soft hover:shadow-lg sm:px-10"
+                className="btn-executive rounded-full bg-gold px-8 py-3.5 text-base font-semibold text-forest shadow-md sm:px-10"
               >
                 Explore my work
               </Link>
               <Link
                 href="/contact"
-                className="rounded-full border-2 border-gold px-8 py-3.5 text-base font-semibold text-gold transition duration-300 hover:bg-gold hover:text-forest sm:px-10"
+                className="btn-executive btn-executive-outline rounded-full border-2 border-gold px-8 py-3.5 text-base font-semibold text-gold transition hover:bg-gold hover:text-forest sm:px-10"
               >
                 Get in touch
               </Link>
@@ -103,10 +113,10 @@ export function Hero({ portraitSrc = null }: Props) {
           {portraitSrc ? (
             <div className="motion-scale-in motion-delay-3 relative mx-auto hidden w-full max-w-sm lg:col-span-5 lg:block">
               <div
-                className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-gold/35 via-transparent to-gold/10 blur-sm"
+                className="ring-breathe absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-gold/40 via-transparent to-gold/15 blur-sm"
                 aria-hidden
               />
-              <div className="img-zoom relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-gold/35 shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
+              <div className="portrait-glow img-zoom relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-gold/40 shadow-[0_30px_80px_rgba(0,0,0,0.45)]">
                 <Image
                   src={portraitSrc}
                   alt={person.displayName}
